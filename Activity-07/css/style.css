@@ -1,0 +1,41 @@
+body {
+  background-color: #FEFAE0;
+}
+
+header h1 {
+  color: #283618;
+  text-align: center;
+  background-color: #DDA15E;
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2, h3, h4 {
+  color: #283618;
+  text-align: center;
+}
+
+img {
+  border: 10px solid grey;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px grey;
+  margin: 10px;
+}
+
+ul, ol {
+  color: #606C38;
+  width: 60%;
+}
+
+footer {
+  background-color: #DDA15E;
+  padding: 10px;
+}
+
+footer p {
+  color: #283618;
+  text-align: center;
+}
