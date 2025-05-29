@@ -89,7 +89,6 @@ footer {
   letter-spacing: 0.05em;
 }
 
-
 .nav-list {
   list-style: none;
   display: flex;
@@ -98,14 +97,20 @@ footer {
 
 .nav-list > li {
   padding: 0.25rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #7A443D; /* slightly lighter than #582E28 */
   border-radius: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-list > li:last-child {
+  border-right: none;
 }
 
 .nav-list a {
   text-decoration: none;
   color: whitesmoke;
   font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .nav-list a:hover {
@@ -113,6 +118,10 @@ footer {
   background: #582E28;
 }
 
+.active{
+background-color: #222C1C;
+
+}
 .resources {
   background-color: #ffffff;
   padding: 1rem;
