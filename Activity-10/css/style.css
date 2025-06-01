@@ -1,0 +1,82 @@
+body {
+  background-color: forestgreen; /* no dash in background color */
+  font-family: 'Gill Sans'; /* gil sans is incorrect spelling */
+}
+
+
+header {
+  background-color: Gold; /*g0ld is incorrect */
+  color: #004d00;
+  text-align: center;
+  font-size: 2em;
+  padding: 20px; /* padding incorect spelling */
+
+  margin: 0;
+}
+
+nav { /* class is incorrect (.nav) */
+  background-color: #2e1a1a;
+  width: 100%;
+  margin: 0;
+  padding: 0 5px;
+  position: sticky;
+  top: 0;
+}
+
+nav li {
+  display: inline;
+  border-right: 1px solid grey;
+}
+
+nav li:last-child {
+  border-right: none;
+}
+
+nav ul {
+  list-style-type: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: gold;
+  font-weight: bold;
+  padding: 14px 16px;
+}
+
+nav a:hover { /* extra : element */
+  background-color: gold;
+  color: #2e1a1a;
+}
+
+main {
+  background-color: lightgreen;
+  margin: 50px 100px; /* no px after 100*/
+  padding: 50px;
+}
+
+#garden { /* no html element garden it should be an id*/
+  border: 5px solid brown;
+  border-radius: 30px;
+  box-shadow: 5px 5px 15px grey;
+  height: 30%; /* no % */
+  width: 30%;
+}
+
+section {
+  margin-top: 30px; /* no dash margin top */
+
+}
+
+h2 {
+  color: brown;
+}
+
+footer {
+  background-color: #2e1a1a;
+  opacity: 0.9;
+  padding: 30px 50px;
+  color: gold;
+  text-align: center;
+}
