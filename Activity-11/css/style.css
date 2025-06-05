@@ -46,13 +46,11 @@ nav a {
   flex: 1;
   background: #fff;
   padding: 15px;
-  border: 1px solid #ddd;
 }
 
 .image-wrap {
   background: #fff;
   padding: 15px;
-  border: 2px solid #ddd;
   margin-bottom: 20px;
 }
 
