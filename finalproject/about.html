@@ -3,44 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Photo Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>About-Hewlett Studio</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
     <header>
-        <h1>Foto-Quest</h1>
+        <h1>Hewlett Studios</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-
             </ul>
         </nav>
     </header>
 
-    <main>
+
+
         <section class="gallery-intro">
-            <h2>About This Portfolio</h2>
-            <p>This website serves as a personal photo portfolio showcasing unique perspectives, stories, and emotions captured through the lens. Each photo reflects a journey, from quiet landscapes to vibrant cityscapes.</p>
-            <p>The goal of this site is to inspire creativity and visual storytelling by providing an interactive experience.</p>
+          <div class="body-content">
+            <div class="body-image">
+              <img src="images/aboutme.jpg" alt="Yulett Creatives Portrait" class="section-image">
+            </div>
+            <div class="body-text">
+              <h2>About Hewlett Studios</h2>
+              <p>Hi! I'm Hewlett Madriaga — a visual storyteller passionate about capturing life through the lens. With a deep love for composition, light, and real emotion, I’ve developed a style that is minimal, clean, and meaningful. This portfolio is a personal reflection of how I see the world: filled with culture, color, and human connection.</p>
+              <p>When I’m behind the camera documenting once-in-a-lifetime moments, I aim to preserve the emotions so it can be revisited and remembered. I’m excited to share this creative journey with you. Thank you for stopping by.</p>
+            </div>
+          </div>
         </section>
 
-        <section class="photo-gallery">
-            <figure>
-                <img src="images/palace.jpg" alt="Historic palace exterior">
-                <figcaption>Palace</figcaption>
-            </figure>
-            <figure>
-                <img src="images/park.jpg" alt="Scenic view of park at dusk">
-                <figcaption>City Lights</figcaption>
-            </figure>
+        <section class="culture-gallery">
+          <div class="auto-scroll-gallery" style="overflow-x: auto; white-space: nowrap;">
+            <div class="culture-grid" style="display: inline-flex;">
+              <img src="images/cn6.jpg" alt="Cultural Dance 1" class="section-image">
+              <img src="images/cn4.jpg" alt="Cultural Dance 2" class="section-image">
+              <img src="images/cn3.jpg" alt="Cultural Dance 3" class="section-image">
+              <img src="images/kc4.jpg" alt="Cultural Dance 4" class="section-image">
+              <img src="images/kc1.jpg" alt="Cultural Dance 5" class="section-image">
+              <img src="images/kc2.jpg" alt="Cultural Dance 6" class="section-image">
+              <img src="images/kc3.jpg" alt="Cultural Dance 7" class="section-image">
+
+            </div>
+          </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to book your session?</h2>
+            <a href="contact.html" class="cta-button">Contact Me</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 My Photo Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Hewlett Studios. All rights reserved.</p>
     </footer>
 </body>
+<script src="scripts/script.js"></script>
 </html>

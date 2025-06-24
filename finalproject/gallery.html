@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Project</title>
+    <title>Gallery-Hewlett Studio</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
@@ -29,16 +29,30 @@
         </section>
 
         <section class="culture-gallery">
-          <h3 class="gallery-category-title">BYUH Culture Night 2025</h3>
-          <div class="culture-grid">
-            <img src="images/cn6.jpg" alt="Cultural Dance 1" class="section-image">
-            <img src="images/cn4.jpg" alt="Cultural Dance 2" class="section-image">
-            <img src="images/cn3.jpg" alt="Cultural Dance 3" class="section-image">
-            <img src="images/cn1.jpg" alt="Cultural Dance 4" class="section-image">
-            <img src="images/cn7.jpg" alt="Cultural Dance 5" class="section-image">
-            <img src="images/cn8.jpg" alt="Cultural Dance 6" class="section-image">
+          <div class="album">
+            <h3 class="gallery-category-title">BYUH Culture Night 2025</h3>
+            <div class="culture-grid">
+              <img src="images/cn6.jpg" alt="Cultural Dance 1" class="section-image">
+              <img src="images/cn4.jpg" alt="Cultural Dance 2" class="section-image">
+              <img src="images/cn3.jpg" alt="Cultural Dance 3" class="section-image">
+              <img src="images/cn1.jpg" alt="Cultural Dance 4" class="section-image">
+              <img src="images/cn7.jpg" alt="Cultural Dance 5" class="section-image">
+              <img src="images/cn8.jpg" alt="Cultural Dance 6" class="section-image">
+            </div>
           </div>
         </section>
+
+        <div class="album">
+          <h3 class="gallery-category-title">Ken and Chelsea Wedding</h3>
+          <div class="culture-grid">
+            <img src="images/kc1.jpg" alt="Ken and Chelsea Wedding 1" class="section-image">
+            <img src="images/kc2.jpg" alt="Ken and Chelsea Wedding 2" class="section-image">
+            <img src="images/kc3.jpg" alt="Ken and Chelsea Wedding 3" class="section-image">
+            <img src="images/kc4.jpg" alt="Ken and Chelsea Wedding 4" class="section-image">
+            <img src="images/kc5.jpg" alt="Ken and Chelsea Wedding 5" class="section-image">
+            <img src="images/kc6.jpg" alt="Ken and Chelsea Wedding 6" class="section-image">
+          </div>
+        </div>
 
         <section class="cta">
             <h2>Ready to book your session?</h2>
@@ -56,21 +70,20 @@
     </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const photoGallery = document.querySelector('.culture-grid');
+    const allGalleryImages = Array.from(document.querySelectorAll('.section-image'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = lightbox.querySelector('img');
     const leftArrow = document.querySelector('.lightbox-arrow.left');
     const rightArrow = document.querySelector('.lightbox-arrow.right');
 
-    const galleryImages = Array.from(photoGallery.querySelectorAll('img'));
     let currentIndex = 0;
 
     function updateLightboxImage(index) {
-      currentIndex = (index + galleryImages.length) % galleryImages.length;
-      lightboxImage.src = galleryImages[currentIndex].src;
+      currentIndex = (index + allGalleryImages.length) % allGalleryImages.length;
+      lightboxImage.src = allGalleryImages[currentIndex].src;
     }
 
-    galleryImages.forEach((image, index) => {
+    allGalleryImages.forEach((image, index) => {
       image.addEventListener('click', () => {
         updateLightboxImage(index);
         lightbox.style.display = 'flex';
