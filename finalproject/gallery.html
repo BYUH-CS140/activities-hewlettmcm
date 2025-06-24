@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <header>
+        <h1>Hewlett Studios</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="gallery-header">
+          <div class="intro-text">
+            <h2>Gallery</h2>
+            <p>Welcome to the gallery – a curated visual journey through my lens. Each photo captures a story, a moment, and a mood. Scroll through and experience the beauty, culture, and emotion behind every frame.</p>
+          </div>
+        </section>
+
+        <section class="culture-gallery">
+          <h3 class="gallery-category-title">BYUH Culture Night 2025</h3>
+          <div class="culture-grid">
+            <img src="images/cn6.jpg" alt="Cultural Dance 1" class="section-image">
+            <img src="images/cn4.jpg" alt="Cultural Dance 2" class="section-image">
+            <img src="images/cn3.jpg" alt="Cultural Dance 3" class="section-image">
+            <img src="images/cn1.jpg" alt="Cultural Dance 4" class="section-image">
+            <img src="images/cn7.jpg" alt="Cultural Dance 5" class="section-image">
+            <img src="images/cn8.jpg" alt="Cultural Dance 6" class="section-image">
+          </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to book your session?</h2>
+            <a href="contact.html" class="cta-button">Contact Me</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hewlett Studios. All rights reserved.</p>
+    </footer>
+    <div id="lightbox">
+      <button class="lightbox-arrow left">&#10094;</button>
+      <img src="" alt="Expanded Gallery View">
+      <button class="lightbox-arrow right">&#10095;</button>
+    </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const photoGallery = document.querySelector('.culture-grid');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+    const leftArrow = document.querySelector('.lightbox-arrow.left');
+    const rightArrow = document.querySelector('.lightbox-arrow.right');
+
+    const galleryImages = Array.from(photoGallery.querySelectorAll('img'));
+    let currentIndex = 0;
+
+    function updateLightboxImage(index) {
+      currentIndex = (index + galleryImages.length) % galleryImages.length;
+      lightboxImage.src = galleryImages[currentIndex].src;
+    }
+
+    galleryImages.forEach((image, index) => {
+      image.addEventListener('click', () => {
+        updateLightboxImage(index);
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    leftArrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateLightboxImage(currentIndex - 1);
+    });
+
+    rightArrow.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateLightboxImage(currentIndex + 1);
+    });
+  });
+</script>
+<script src="scripts/script.js"></script>
+</body>
+</html>
