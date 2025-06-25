@@ -14,8 +14,95 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Simulate form submission
-            alert('Thank you for your message, ' + name + '! We will get back to you soon.');
+            // Simulate form submission with animated thank-you message and confetti
+            const thankYouMessage = document.createElement('div');
+            thankYouMessage.textContent = 'Thank you for your message, ' + name + '! We will get back to you soon.';
+            thankYouMessage.style.marginTop = '20px';
+            thankYouMessage.style.color = '#fff';
+            thankYouMessage.style.backgroundColor = '#1B263B';
+            thankYouMessage.style.padding = '15px';
+            thankYouMessage.style.borderRadius = '8px';
+            thankYouMessage.style.fontWeight = 'bold';
+            thankYouMessage.style.textAlign = 'center';
+            thankYouMessage.style.opacity = '0';
+            thankYouMessage.style.transition = 'opacity 0.5s ease-in-out';
+
+            contactForm.appendChild(thankYouMessage);
+
+            setTimeout(() => {
+                thankYouMessage.style.opacity = '1';
+            }, 100);
+
+            // Auto-hide message after 4 seconds
+            setTimeout(() => {
+                thankYouMessage.style.opacity = '0';
+                setTimeout(() => {
+                    thankYouMessage.remove();
+                }, 500);
+            }, 4000);
+
+            // Add confetti using a simple canvas animation
+            const confettiCanvas = document.createElement('canvas');
+            confettiCanvas.style.position = 'fixed';
+            confettiCanvas.style.top = '0';
+            confettiCanvas.style.left = '0';
+            confettiCanvas.style.width = '100%';
+            confettiCanvas.style.height = '100%';
+            confettiCanvas.style.pointerEvents = 'none';
+            confettiCanvas.style.zIndex = '9999';
+            document.body.appendChild(confettiCanvas);
+
+            const ctx = confettiCanvas.getContext('2d');
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
+
+            let confetti = Array.from({ length: 100 }, () => ({
+                x: Math.random() * confettiCanvas.width,
+                y: Math.random() * confettiCanvas.height,
+                r: Math.random() * 6 + 4,
+                d: Math.random() * 100,
+                color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+                tilt: Math.floor(Math.random() * 10) - 10
+            }));
+
+            function drawConfetti() {
+                ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                confetti.forEach(c => {
+                    ctx.beginPath();
+                    ctx.lineWidth = c.r;
+                    ctx.strokeStyle = c.color;
+                    ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
+                    ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
+                    ctx.stroke();
+                });
+                updateConfetti();
+            }
+
+            function updateConfetti() {
+                confetti.forEach((c, i) => {
+                    c.y += Math.cos(c.d) + 1 + c.r / 2;
+                    c.x += Math.sin(c.d);
+                    if (c.y > confettiCanvas.height) {
+                        confetti[i] = {
+                            x: Math.random() * confettiCanvas.width,
+                            y: -10,
+                            r: c.r,
+                            d: c.d,
+                            color: c.color,
+                            tilt: c.tilt
+                        };
+                    }
+                });
+            }
+
+            let confettiInterval = setInterval(drawConfetti, 20);
+
+            // Stop and remove confetti after 4 seconds
+            setTimeout(() => {
+                clearInterval(confettiInterval);
+                confettiCanvas.remove();
+            }, 4000);
+
             contactForm.reset();
         });
     }
@@ -137,5 +224,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         autoScroll();
+    }
+
+    // Hamburger toggle for small screens
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksContainer = document.querySelector('nav ul');
+
+    if (hamburger && navLinksContainer) {
+        hamburger.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('show-nav');
+        });
     }
 });
